@@ -1,0 +1,15 @@
+baselines/
+/log
+/log1
+/results
+/results1
+/zplot
+/__pycache__
+/datasets/**
+!/datasets/preprocess.py
+/*.py
+/*.ipynb
+/*.sh
+!/main_dipsgnn.py
+!/model_dipsgnn.py
+!/utils.py
