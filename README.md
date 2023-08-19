@@ -24,4 +24,4 @@ torch: 1.12.1
 ```
 
 ## Code Reference
-[Session-based Recommendation with Graph Neural Networks](https://github.com/CRIPAC-DIG/SR-GNN)
+- [SRGNN](https://github.com/CRIPAC-DIG/SR-GNN)
