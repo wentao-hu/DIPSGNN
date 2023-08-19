@@ -77,11 +77,11 @@ class GNN(Module):
         gi = F.linear(inputs, self.w_ih, self.b_ih)
         hidden= H_bar[:,:,:hidden.shape[2]]                    #important the keep the scale of node_embed and item_embed at the same level?
         gh = F.linear(hidden, self.w_hh, self.b_hh)
-        i_r, i_i, i_n = gi.chunk(3, 2)
+        i_r, i_i, i_n = gi.chunk(3, 2)   # chunk into 3 parts along the last dimension(dim=2)
         h_r, h_i, h_n = gh.chunk(3, 2)
         resetgate = torch.sigmoid(i_r + h_r)
         inputgate = torch.sigmoid(i_i + h_i)
-        newgate = torch.tanh(i_n + resetgate * h_n)
+        newgate = torch.tanh(i_n + resetgate * h_n)  # candidate hidden state/memory
         e_it = hidden + inputgate * (newgate - hidden)        # batch_size * max_n_node * hidden_size
 
         return e_it
